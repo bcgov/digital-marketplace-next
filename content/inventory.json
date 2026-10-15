@@ -1,0 +1,1110 @@
+{
+  "base": "the original application",
+  "screens": [
+    {
+      "id": "home",
+      "alsoFor": [
+        "content-footer"
+      ],
+      "domain": "opportunities",
+      "url": "/",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "Discover Unique Opportunities to Collaborate with the B.C. Public Sector."
+    },
+    {
+      "id": "opportunity-dashboard",
+      "alsoFor": [],
+      "domain": "opportunities",
+      "url": "/dashboard",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": "Dashboard"
+    },
+    {
+      "id": "opportunity-list",
+      "alsoFor": [
+        "notification-optin-opportunity-list"
+      ],
+      "domain": "opportunities",
+      "url": "/opportunities",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "Welcome to the Digital Marketplace"
+    },
+    {
+      "id": "opportunity-program-select",
+      "alsoFor": [],
+      "domain": "opportunities",
+      "url": "/opportunities/create",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": ""
+    },
+    {
+      "id": "opportunity-cwu-create",
+      "alsoFor": [],
+      "domain": "opportunities",
+      "url": "/opportunities/code-with-us/create",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": "Create a Code With Us Opportunity"
+    },
+    {
+      "id": "opportunity-cwu-view",
+      "alsoFor": [],
+      "domain": "opportunities",
+      "url": "/opportunities/code-with-us/00000000-0000-4000-8000-000000000601",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": ""
+    },
+    {
+      "id": "opportunity-cwu-edit",
+      "alsoFor": [],
+      "domain": "opportunities",
+      "url": "/opportunities/code-with-us/00000000-0000-4000-8000-000000000601/edit",
+      "status": "captured",
+      "viewer": "staff",
+      "heading": ""
+    },
+    {
+      "id": "opportunity-cwu-complete",
+      "alsoFor": [],
+      "domain": "opportunities",
+      "url": "/opportunities/code-with-us/00000000-0000-4000-8000-000000000601/complete",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": ""
+    },
+    {
+      "id": "opportunity-swu-create",
+      "alsoFor": [],
+      "domain": "opportunities",
+      "url": "/opportunities/sprint-with-us/create",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": "Create a Sprint With Us Opportunity"
+    },
+    {
+      "id": "opportunity-swu-view",
+      "alsoFor": [],
+      "domain": "opportunities",
+      "url": "/opportunities/sprint-with-us/00000000-0000-4000-8000-000000000701",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": ""
+    },
+    {
+      "id": "opportunity-swu-edit",
+      "alsoFor": [],
+      "domain": "opportunities",
+      "url": "/opportunities/sprint-with-us/00000000-0000-4000-8000-000000000701/edit",
+      "status": "captured",
+      "viewer": "staff",
+      "heading": ""
+    },
+    {
+      "id": "opportunity-swu-complete",
+      "alsoFor": [],
+      "domain": "opportunities",
+      "url": "/opportunities/sprint-with-us/00000000-0000-4000-8000-000000000701/complete",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": ""
+    },
+    {
+      "id": "opportunity-twu-create",
+      "alsoFor": [],
+      "domain": "opportunities",
+      "url": "/opportunities/team-with-us/create",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": "Create a Team With Us Opportunity"
+    },
+    {
+      "id": "opportunity-twu-view",
+      "alsoFor": [],
+      "domain": "opportunities",
+      "url": "/opportunities/team-with-us/00000000-0000-4000-8000-000000000801",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": ""
+    },
+    {
+      "id": "opportunity-twu-edit",
+      "alsoFor": [],
+      "domain": "opportunities",
+      "url": "/opportunities/team-with-us/00000000-0000-4000-8000-000000000801/edit",
+      "status": "captured",
+      "viewer": "staff",
+      "heading": ""
+    },
+    {
+      "id": "opportunity-twu-complete",
+      "alsoFor": [],
+      "domain": "opportunities",
+      "url": "/opportunities/team-with-us/00000000-0000-4000-8000-000000000801/complete",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": ""
+    },
+    {
+      "id": "scheduled-transition-trigger",
+      "alsoFor": [],
+      "domain": "opportunities",
+      "url": "/status",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": ""
+    },
+    {
+      "id": "proposal-cwu-create",
+      "alsoFor": [],
+      "domain": "proposals",
+      "url": "/opportunities/code-with-us/00000000-0000-4000-8000-000000000601/proposals/create",
+      "status": "captured",
+      "viewer": "vendor-2",
+      "heading": "Create a Code With Us Proposal"
+    },
+    {
+      "id": "proposal-cwu-edit",
+      "alsoFor": [],
+      "domain": "proposals",
+      "url": "/opportunities/code-with-us/00000000-0000-4000-a002-000000000001/proposals/00000000-0000-4000-a002-000000000101/edit",
+      "status": "captured",
+      "viewer": "vendor-2",
+      "heading": ""
+    },
+    {
+      "id": "proposal-cwu-view",
+      "alsoFor": [],
+      "domain": "proposals",
+      "url": "/opportunities/code-with-us/00000000-0000-4000-a002-000000000001/proposals/00000000-0000-4000-a002-000000000101",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": ""
+    },
+    {
+      "id": "proposal-cwu-export-one",
+      "alsoFor": [],
+      "domain": "proposals",
+      "url": "/opportunities/code-with-us/00000000-0000-4000-a002-000000000001/proposals/00000000-0000-4000-a002-000000000101/export",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": ""
+    },
+    {
+      "id": "proposal-cwu-export-all",
+      "alsoFor": [],
+      "domain": "proposals",
+      "url": "/opportunities/code-with-us/00000000-0000-4000-8000-000000000601/proposals/export",
+      "status": "captured",
+      "viewer": "staff",
+      "heading": "Seeded published Code With Us opportunity"
+    },
+    {
+      "id": "proposal-swu-create",
+      "alsoFor": [],
+      "domain": "proposals",
+      "url": "/opportunities/sprint-with-us/00000000-0000-4000-8000-000000000701/proposals/create",
+      "status": "not captured",
+      "tried": [
+        "no open sprint-with-us opportunity in the seed to start a proposal against"
+      ]
+    },
+    {
+      "id": "proposal-swu-edit",
+      "alsoFor": [],
+      "domain": "proposals",
+      "url": "/opportunities/sprint-with-us/00000000-0000-4000-8000-000000000701/proposals/00000000-0000-4000-8000-000000000741/edit",
+      "status": "captured",
+      "viewer": "vendor-2",
+      "heading": ""
+    },
+    {
+      "id": "proposal-swu-view",
+      "alsoFor": [],
+      "domain": "proposals",
+      "url": "/opportunities/sprint-with-us/00000000-0000-4000-8000-000000000701/proposals/00000000-0000-4000-8000-000000000741",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": ""
+    },
+    {
+      "id": "proposal-swu-export-one",
+      "alsoFor": [],
+      "domain": "proposals",
+      "url": "/opportunities/sprint-with-us/00000000-0000-4000-8000-000000000701/proposals/00000000-0000-4000-8000-000000000741/export",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": ""
+    },
+    {
+      "id": "proposal-swu-export-all",
+      "alsoFor": [],
+      "domain": "proposals",
+      "url": "/opportunities/sprint-with-us/00000000-0000-4000-8000-000000000701/proposals/export",
+      "status": "captured",
+      "viewer": "staff",
+      "heading": "Seeded closed Sprint With Us opportunity"
+    },
+    {
+      "id": "proposal-twu-create",
+      "alsoFor": [],
+      "domain": "proposals",
+      "url": "/opportunities/team-with-us/00000000-0000-4000-8000-000000000801/proposals/create",
+      "status": "not captured",
+      "tried": [
+        "no open team-with-us opportunity in the seed to start a proposal against"
+      ]
+    },
+    {
+      "id": "proposal-twu-edit",
+      "alsoFor": [],
+      "domain": "proposals",
+      "url": "/opportunities/team-with-us/00000000-0000-4000-8000-000000000801/proposals/00000000-0000-4000-8000-000000000841/edit",
+      "status": "captured",
+      "viewer": "vendor-2",
+      "heading": ""
+    },
+    {
+      "id": "proposal-twu-view",
+      "alsoFor": [],
+      "domain": "proposals",
+      "url": "/opportunities/team-with-us/00000000-0000-4000-8000-000000000801/proposals/00000000-0000-4000-8000-000000000841",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": ""
+    },
+    {
+      "id": "proposal-twu-export-one",
+      "alsoFor": [],
+      "domain": "proposals",
+      "url": "/opportunities/team-with-us/00000000-0000-4000-8000-000000000801/proposals/00000000-0000-4000-8000-000000000841/export",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": ""
+    },
+    {
+      "id": "proposal-twu-export-all",
+      "alsoFor": [],
+      "domain": "proposals",
+      "url": "/opportunities/team-with-us/00000000-0000-4000-8000-000000000801/proposals/export",
+      "status": "captured",
+      "viewer": "staff",
+      "heading": "Seeded closed Team With Us opportunity"
+    },
+    {
+      "id": "proposal-vendor-dashboard",
+      "alsoFor": [],
+      "domain": "proposals",
+      "url": "/dashboard",
+      "status": "captured",
+      "viewer": "vendor-1",
+      "heading": "Dashboard"
+    },
+    {
+      "id": "proposal-list-stub",
+      "alsoFor": [],
+      "domain": "proposals",
+      "url": "/proposals",
+      "status": "captured",
+      "viewer": "vendor-1",
+      "heading": ""
+    },
+    {
+      "id": "organization-list",
+      "alsoFor": [],
+      "domain": "organizations",
+      "url": "/organizations",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "Digital Marketplace Organizations"
+    },
+    {
+      "id": "organization-create",
+      "alsoFor": [],
+      "domain": "organizations",
+      "url": "/organizations/create",
+      "status": "captured",
+      "viewer": "vendor-1",
+      "heading": ""
+    },
+    {
+      "id": "organization-edit",
+      "alsoFor": [],
+      "domain": "organizations",
+      "url": "/organizations/00000000-0000-4000-8000-000000000301/edit",
+      "status": "captured",
+      "viewer": "vendor-2",
+      "heading": ""
+    },
+    {
+      "id": "organization-swu-terms",
+      "alsoFor": [],
+      "domain": "organizations",
+      "url": "/organizations/00000000-0000-4000-8000-000000000301/sprint-with-us-terms-and-conditions",
+      "status": "captured",
+      "viewer": "vendor-2",
+      "heading": "Sprint With Us Terms & Conditions"
+    },
+    {
+      "id": "organization-twu-terms",
+      "alsoFor": [],
+      "domain": "organizations",
+      "url": "/organizations/00000000-0000-4000-8000-000000000301/team-with-us-terms-and-conditions",
+      "status": "captured",
+      "viewer": "vendor-2",
+      "heading": "Team With Us Terms & Conditions"
+    },
+    {
+      "id": "organization-user-memberships",
+      "alsoFor": [],
+      "domain": "organizations",
+      "url": "/users/00000000-0000-4000-8000-000000000201?tab=organizations",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": ""
+    },
+    {
+      "id": "user-sign-in",
+      "alsoFor": [],
+      "domain": "users",
+      "url": "/sign-in",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "Welcome Back to the Digital Marketplace"
+    },
+    {
+      "id": "user-sign-up-choose-account",
+      "alsoFor": [],
+      "domain": "users",
+      "url": "/sign-up",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "Create Your Digital Marketplace Account."
+    },
+    {
+      "id": "user-sign-up-complete",
+      "alsoFor": [],
+      "domain": "users",
+      "url": "/sign-up/complete",
+      "status": "captured",
+      "viewer": "vendor-1",
+      "heading": "Dashboard"
+    },
+    {
+      "id": "user-sign-out",
+      "alsoFor": [],
+      "domain": "users",
+      "url": "/sign-out",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": ""
+    },
+    {
+      "id": "user-notice",
+      "alsoFor": [],
+      "domain": "users",
+      "url": "/notice/deactivatedOwnAccount",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "Account Deactivation Successful"
+    },
+    {
+      "id": "user-list",
+      "alsoFor": [],
+      "domain": "users",
+      "url": "/users",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": "Digital Marketplace Users"
+    },
+    {
+      "id": "user-profile",
+      "alsoFor": [],
+      "domain": "users",
+      "url": "/users/00000000-0000-4000-8000-000000000201",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": ""
+    },
+    {
+      "id": "user-profile-capabilities",
+      "alsoFor": [],
+      "domain": "users",
+      "url": "/users/00000000-0000-4000-8000-000000000201?tab=capabilities",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": ""
+    },
+    {
+      "id": "user-profile-notifications",
+      "alsoFor": [],
+      "domain": "users",
+      "url": "/users/00000000-0000-4000-8000-000000000201?tab=notifications",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": ""
+    },
+    {
+      "id": "user-profile-legal",
+      "alsoFor": [],
+      "domain": "users",
+      "url": "/users/00000000-0000-4000-8000-000000000201?tab=legal",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": ""
+    },
+    {
+      "id": "user-profile-self",
+      "alsoFor": [
+        "file-image-picker"
+      ],
+      "domain": "users",
+      "url": "/users/me",
+      "status": "captured",
+      "viewer": "vendor-1",
+      "heading": ""
+    },
+    {
+      "id": "user-profile-self-capabilities",
+      "alsoFor": [],
+      "domain": "users",
+      "url": "/users/me?tab=capabilities",
+      "status": "captured",
+      "viewer": "vendor-1",
+      "heading": ""
+    },
+    {
+      "id": "user-profile-self-notifications",
+      "alsoFor": [],
+      "domain": "users",
+      "url": "/users/me?tab=notifications",
+      "status": "captured",
+      "viewer": "vendor-1",
+      "heading": ""
+    },
+    {
+      "id": "user-profile-self-legal",
+      "alsoFor": [],
+      "domain": "users",
+      "url": "/users/me?tab=legal",
+      "status": "captured",
+      "viewer": "vendor-1",
+      "heading": ""
+    },
+    {
+      "id": "organization-user-memberships-self",
+      "alsoFor": [],
+      "domain": "organizations",
+      "url": "/users/me?tab=organizations",
+      "status": "captured",
+      "viewer": "vendor-1",
+      "heading": ""
+    },
+    {
+      "id": "evaluation-panel-dashboard",
+      "alsoFor": [],
+      "domain": "evaluation",
+      "url": "/dashboard",
+      "status": "captured",
+      "viewer": "staff",
+      "heading": "Dashboard"
+    },
+    {
+      "id": "evaluation-panel-swu",
+      "alsoFor": [],
+      "domain": "evaluation",
+      "url": "/opportunities/sprint-with-us/00000000-0000-4000-8000-000000000701/edit?tab=evaluationPanel",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": ""
+    },
+    {
+      "id": "evaluation-panel-twu",
+      "alsoFor": [],
+      "domain": "evaluation",
+      "url": "/opportunities/team-with-us/00000000-0000-4000-8000-000000000801/edit?tab=evaluationPanel",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": ""
+    },
+    {
+      "id": "evaluation-instructions-swu",
+      "alsoFor": [],
+      "domain": "evaluation",
+      "url": "/opportunities/sprint-with-us/00000000-0000-4000-8000-000000000701/edit?tab=instructions",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": ""
+    },
+    {
+      "id": "evaluation-instructions-twu",
+      "alsoFor": [],
+      "domain": "evaluation",
+      "url": "/opportunities/team-with-us/00000000-0000-4000-8000-000000000801/edit?tab=instructions",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": ""
+    },
+    {
+      "id": "evaluation-individual-list-swu",
+      "alsoFor": [],
+      "domain": "evaluation",
+      "url": "/opportunities/sprint-with-us/00000000-0000-4000-8000-000000000701/edit?tab=evaluation",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": ""
+    },
+    {
+      "id": "evaluation-individual-list-twu",
+      "alsoFor": [],
+      "domain": "evaluation",
+      "url": "/opportunities/team-with-us/00000000-0000-4000-8000-000000000801/edit?tab=evaluation",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": ""
+    },
+    {
+      "id": "evaluation-consensus-list-swu",
+      "alsoFor": [],
+      "domain": "evaluation",
+      "url": "/opportunities/sprint-with-us/00000000-0000-4000-8000-000000000701/edit?tab=consensus",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": ""
+    },
+    {
+      "id": "evaluation-consensus-list-twu",
+      "alsoFor": [],
+      "domain": "evaluation",
+      "url": "/opportunities/team-with-us/00000000-0000-4000-8000-000000000801/edit?tab=consensus",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": ""
+    },
+    {
+      "id": "evaluation-individual-create-swu",
+      "alsoFor": [],
+      "domain": "evaluation",
+      "url": "/opportunities/sprint-with-us/00000000-0000-4000-8000-000000000701/proposals/00000000-0000-4000-8000-000000000741/team-questions/evaluations/create",
+      "status": "captured",
+      "viewer": "staff",
+      "heading": ""
+    },
+    {
+      "id": "evaluation-individual-edit-swu",
+      "alsoFor": [],
+      "domain": "evaluation",
+      "url": "/opportunities/sprint-with-us/00000000-0000-4000-8000-000000000701/proposals/00000000-0000-4000-8000-000000000741/team-questions/evaluations/00000000-0000-4000-8000-000000000102/edit",
+      "status": "not captured",
+      "tried": [
+        "staff: not found",
+        "administrator: not found"
+      ]
+    },
+    {
+      "id": "evaluation-consensus-create-swu",
+      "alsoFor": [],
+      "domain": "evaluation",
+      "url": "/opportunities/sprint-with-us/00000000-0000-4000-8000-000000000701/proposals/00000000-0000-4000-8000-000000000741/team-questions/consensus/create",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": ""
+    },
+    {
+      "id": "evaluation-consensus-edit-swu",
+      "alsoFor": [],
+      "domain": "evaluation",
+      "url": "/opportunities/sprint-with-us/00000000-0000-4000-8000-000000000701/proposals/00000000-0000-4000-8000-000000000741/team-questions/consensus/00000000-0000-4000-8000-000000000101/edit",
+      "status": "not captured",
+      "tried": [
+        "administrator: not found",
+        "administrator: not found"
+      ]
+    },
+    {
+      "id": "evaluation-individual-create-twu",
+      "alsoFor": [],
+      "domain": "evaluation",
+      "url": "/opportunities/team-with-us/00000000-0000-4000-8000-000000000801/proposals/00000000-0000-4000-8000-000000000841/resource-questions/evaluations/create",
+      "status": "captured",
+      "viewer": "staff",
+      "heading": ""
+    },
+    {
+      "id": "evaluation-individual-edit-twu",
+      "alsoFor": [],
+      "domain": "evaluation",
+      "url": "/opportunities/team-with-us/00000000-0000-4000-8000-000000000801/proposals/00000000-0000-4000-8000-000000000841/resource-questions/evaluations/00000000-0000-4000-8000-000000000102/edit",
+      "status": "not captured",
+      "tried": [
+        "staff: not found",
+        "administrator: not found"
+      ]
+    },
+    {
+      "id": "evaluation-consensus-create-twu",
+      "alsoFor": [],
+      "domain": "evaluation",
+      "url": "/opportunities/team-with-us/00000000-0000-4000-8000-000000000801/proposals/00000000-0000-4000-8000-000000000841/resource-questions/consensus/create",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": ""
+    },
+    {
+      "id": "evaluation-consensus-edit-twu",
+      "alsoFor": [],
+      "domain": "evaluation",
+      "url": "/opportunities/team-with-us/00000000-0000-4000-8000-000000000801/proposals/00000000-0000-4000-8000-000000000841/resource-questions/consensus/00000000-0000-4000-8000-000000000101/edit",
+      "status": "not captured",
+      "tried": [
+        "administrator: not found",
+        "administrator: not found"
+      ]
+    },
+    {
+      "id": "notification-unsubscribe-landing",
+      "alsoFor": [],
+      "domain": "notifications",
+      "url": "/users/me?tab=notifications&unsubscribe",
+      "status": "captured",
+      "viewer": "vendor-1",
+      "heading": ""
+    },
+    {
+      "id": "notification-terms-broadcast",
+      "alsoFor": [],
+      "domain": "notifications",
+      "url": "/content/terms-and-conditions/edit",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": ""
+    },
+    {
+      "id": "notification-email-reference",
+      "alsoFor": [],
+      "domain": "notifications",
+      "url": "/admin/email-notification-reference",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": "Email Notification Reference"
+    },
+    {
+      "id": "content-service-level-agreement-link",
+      "alsoFor": [
+        "learn-more--cwu"
+      ],
+      "domain": "content",
+      "url": "/learn-more/code-with-us",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "Code With Us"
+    },
+    {
+      "id": "content-list",
+      "alsoFor": [],
+      "domain": "content",
+      "url": "/content",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": "Content Management"
+    },
+    {
+      "id": "content-create",
+      "alsoFor": [],
+      "domain": "content",
+      "url": "/content/create",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": "Create a New Page"
+    },
+    {
+      "id": "content-edit",
+      "alsoFor": [
+        "file-embedded-image"
+      ],
+      "domain": "content",
+      "url": "/content/about/edit",
+      "status": "captured",
+      "viewer": "administrator",
+      "heading": ""
+    },
+    {
+      "id": "content-view--about-us",
+      "alsoFor": [],
+      "domain": "content",
+      "url": "/content/about-us",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "About us"
+    },
+    {
+      "id": "content-view--about",
+      "alsoFor": [],
+      "domain": "content",
+      "url": "/content/about",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "about"
+    },
+    {
+      "id": "content-view--accessibility",
+      "alsoFor": [],
+      "domain": "content",
+      "url": "/content/accessibility",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "accessibility"
+    },
+    {
+      "id": "content-view--code-with-us-opportunity-guide",
+      "alsoFor": [],
+      "domain": "content",
+      "url": "/content/code-with-us-opportunity-guide",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "code-with-us-opportunity-guide"
+    },
+    {
+      "id": "content-view--code-with-us-proposal-guide",
+      "alsoFor": [],
+      "domain": "content",
+      "url": "/content/code-with-us-proposal-guide",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "code-with-us-proposal-guide"
+    },
+    {
+      "id": "content-view--code-with-us-terms-and-conditions",
+      "alsoFor": [],
+      "domain": "content",
+      "url": "/content/code-with-us-terms-and-conditions",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "code-with-us-terms-and-conditions"
+    },
+    {
+      "id": "content-view--copyright",
+      "alsoFor": [],
+      "domain": "content",
+      "url": "/content/copyright",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "copyright"
+    },
+    {
+      "id": "content-view--disclaimer",
+      "alsoFor": [],
+      "domain": "content",
+      "url": "/content/disclaimer",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "disclaimer"
+    },
+    {
+      "id": "content-view--markdown-guide",
+      "alsoFor": [],
+      "domain": "content",
+      "url": "/content/markdown-guide",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "markdown-guide"
+    },
+    {
+      "id": "content-view--privacy",
+      "alsoFor": [],
+      "domain": "content",
+      "url": "/content/privacy",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "privacy"
+    },
+    {
+      "id": "content-view--sprint-with-us-opportunity-guide",
+      "alsoFor": [],
+      "domain": "content",
+      "url": "/content/sprint-with-us-opportunity-guide",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "sprint-with-us-opportunity-guide"
+    },
+    {
+      "id": "content-view--sprint-with-us-opportunity-scope",
+      "alsoFor": [],
+      "domain": "content",
+      "url": "/content/sprint-with-us-opportunity-scope",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "sprint-with-us-opportunity-scope"
+    },
+    {
+      "id": "content-view--sprint-with-us-proposal-evaluation",
+      "alsoFor": [],
+      "domain": "content",
+      "url": "/content/sprint-with-us-proposal-evaluation",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "sprint-with-us-proposal-evaluation"
+    },
+    {
+      "id": "content-view--sprint-with-us-proposal-guide",
+      "alsoFor": [],
+      "domain": "content",
+      "url": "/content/sprint-with-us-proposal-guide",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "sprint-with-us-proposal-guide"
+    },
+    {
+      "id": "content-view--sprint-with-us-terms-and-conditions",
+      "alsoFor": [],
+      "domain": "content",
+      "url": "/content/sprint-with-us-terms-and-conditions",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "sprint-with-us-terms-and-conditions"
+    },
+    {
+      "id": "content-view--terms-and-conditions",
+      "alsoFor": [],
+      "domain": "content",
+      "url": "/content/terms-and-conditions",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "terms-and-conditions"
+    },
+    {
+      "id": "content-view--team-with-us-opportunity-guide",
+      "alsoFor": [],
+      "domain": "content",
+      "url": "/content/team-with-us-opportunity-guide",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "team-with-us-opportunity-guide"
+    },
+    {
+      "id": "content-view--team-with-us-proposal-guide",
+      "alsoFor": [],
+      "domain": "content",
+      "url": "/content/team-with-us-proposal-guide",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "team-with-us-proposal-guide"
+    },
+    {
+      "id": "content-view--team-with-us-opportunity-scope",
+      "alsoFor": [],
+      "domain": "content",
+      "url": "/content/team-with-us-opportunity-scope",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "team-with-us-opportunity-scope"
+    },
+    {
+      "id": "content-view--team-with-us-proposal-evaluation",
+      "alsoFor": [],
+      "domain": "content",
+      "url": "/content/team-with-us-proposal-evaluation",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "team-with-us-proposal-evaluation"
+    },
+    {
+      "id": "content-view--team-with-us-terms-and-conditions",
+      "alsoFor": [],
+      "domain": "content",
+      "url": "/content/team-with-us-terms-and-conditions",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "team-with-us-terms-and-conditions"
+    },
+    {
+      "id": "content-view--sprint-with-us-evaluation-instructions",
+      "alsoFor": [],
+      "domain": "content",
+      "url": "/content/sprint-with-us-evaluation-instructions",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "sprint-with-us-evaluation-instructions"
+    },
+    {
+      "id": "content-view--team-with-us-evaluation-instructions",
+      "alsoFor": [],
+      "domain": "content",
+      "url": "/content/team-with-us-evaluation-instructions",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "team-with-us-evaluation-instructions"
+    },
+    {
+      "id": "file-attachment-control--cwu",
+      "alsoFor": [],
+      "domain": "files",
+      "url": "/opportunities/code-with-us/00000000-0000-4000-8000-000000000601/edit?tab=opportunity",
+      "status": "captured",
+      "viewer": "staff",
+      "heading": ""
+    },
+    {
+      "id": "file-attachment-control--swu",
+      "alsoFor": [],
+      "domain": "files",
+      "url": "/opportunities/sprint-with-us/00000000-0000-4000-8000-000000000701/edit?tab=opportunity",
+      "status": "captured",
+      "viewer": "staff",
+      "heading": ""
+    },
+    {
+      "id": "file-attachment-control--twu",
+      "alsoFor": [],
+      "domain": "files",
+      "url": "/opportunities/team-with-us/00000000-0000-4000-8000-000000000801/edit?tab=opportunity",
+      "status": "captured",
+      "viewer": "staff",
+      "heading": ""
+    },
+    {
+      "id": "learn-more--swu",
+      "alsoFor": [],
+      "domain": "content",
+      "url": "/learn-more/sprint-with-us",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "Sprint With Us"
+    },
+    {
+      "id": "learn-more--twu",
+      "alsoFor": [],
+      "domain": "content",
+      "url": "/learn-more/team-with-us",
+      "status": "captured",
+      "viewer": "signed-out",
+      "heading": "Team With Us"
+    }
+  ],
+  "notScreens": [
+    {
+      "id": "file-upload",
+      "route": "/api/files"
+    },
+    {
+      "id": "file-description",
+      "route": "/api/files/:fileId"
+    },
+    {
+      "id": "file-download",
+      "route": "/api/files/:fileId?type=blob"
+    },
+    {
+      "id": "caught-message",
+      "route": "/api/v1/message/:messageId"
+    },
+    {
+      "id": "caught-message-list",
+      "route": "/api/v1/messages"
+    },
+    {
+      "id": "mail-delivery-fault",
+      "route": "/api/v1/chaos"
+    },
+    {
+      "id": "mail-delivery-delay",
+      "route": "/hold/proxies/smtp/toxics"
+    },
+    {
+      "id": "opportunity-watch-request",
+      "route": "/api/subscribers/:program"
+    },
+    {
+      "id": "organization-acting-for-list",
+      "route": "/api/ownedOrganizations"
+    },
+    {
+      "id": "affiliation-invitation-request",
+      "route": "/api/affiliations"
+    },
+    {
+      "id": "affiliation-approval-request",
+      "route": "/api/affiliations/:affiliationId"
+    },
+    {
+      "id": "affiliation-removal-request",
+      "route": "/api/affiliations/:affiliationId"
+    },
+    {
+      "id": "user-list-request",
+      "route": "/api/users"
+    },
+    {
+      "id": "content-request",
+      "route": "/api/content/:slug"
+    },
+    {
+      "id": "evaluation-individual-request-swu",
+      "route": "/api/proposal/sprint-with-us/:proposalId/team-questions/evaluations/:userId"
+    },
+    {
+      "id": "evaluation-individual-request-twu",
+      "route": "/api/proposal/team-with-us/:proposalId/resource-questions/evaluations/:userId"
+    },
+    {
+      "id": "evaluation-individual-submission-request-swu",
+      "route": "/api/opportunities/sprint-with-us/:opportunityId"
+    },
+    {
+      "id": "evaluation-consensus-request-swu",
+      "route": "/api/proposal/sprint-with-us/:proposalId/team-questions/consensus/:userId"
+    },
+    {
+      "id": "evaluation-consensus-request-twu",
+      "route": "/api/proposal/team-with-us/:proposalId/resource-questions/consensus/:userId"
+    },
+    {
+      "id": "evaluation-panel-request",
+      "route": "/api/opportunities/:program/:opportunityId"
+    },
+    {
+      "id": "file-attach-by-identifier",
+      "route": "/api/:recordKind/:program/:recordId"
+    },
+    {
+      "id": "proposal-cwu-request",
+      "route": "/api/proposals/code-with-us"
+    },
+    {
+      "id": "proposal-team-request",
+      "route": "/api/proposals/:program"
+    },
+    {
+      "id": "proposal-evaluation-request",
+      "route": "/api/proposals/:program/:proposalId"
+    },
+    {
+      "id": "user-account-self-request",
+      "route": "/api/sessions/current"
+    },
+    {
+      "id": "user-account-request",
+      "route": "/api/users/:userId"
+    },
+    {
+      "id": "opportunity-counters",
+      "route": "/api/counters?counters=opportunity.:program.:opportunityId.views"
+    },
+    {
+      "id": "opportunity-history-request",
+      "route": "/api/opportunities/:program/:opportunityId"
+    },
+    {
+      "id": "opportunity-status-request",
+      "route": "/api/opportunities/:program/:opportunityId"
+    },
+    {
+      "id": "organization-request",
+      "route": "/api/organizations/:orgId"
+    }
+  ]
+}
