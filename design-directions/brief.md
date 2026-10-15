@@ -19,7 +19,28 @@ This brief is a starting point for the designer to adjust before any direction i
 - **The B.C. Design System.** Its components, variables and text styles only: no new colours, no
   other typeface than BC Sans, no one-off components. Spacing and breakpoints come from its tokens.
 - **Accessibility.** WCAG 2.2 AA: contrast, focus order and visibility, heading structure, target
-  sizes.
+  sizes. The keyboard, screen reader and zoom checks a design needs are listed with the person who
+  makes each one, and their results are recorded before the chosen direction's screens are accepted.
+
+## What the review of the first build asks of every direction
+
+The first build was reviewed screen by screen, and these follow from what it found:
+
+- **Every screen at three widths.** Desktop (1440), phone (390) and narrow phone (320). The first
+  build was only ever drawn and checked at desktop width, and at 320 and 390 its header pushed
+  Sign in and Sign up off the screen and its opportunity filters truncated and overlapped.
+- **The site's header, navigation and footer are designed in their own right**, at all three
+  widths, rather than left to each page.
+- **Every state a screen can be in.** Empty; no results for a search, with a way to clear it,
+  distinct from a list that is genuinely empty; saving; saved, with a confirmation that the work
+  was kept; and error.
+- **Where you are is never shown by colour alone.** The current section or tab is marked by more
+  than a colour change.
+- **Design system controls, not stand-ins.** A date is chosen with the design system's date
+  picker, a checkbox's target is the checkbox and its label rather than the whole row, and any
+  place a component cannot be used is written down for a reviewer to decide.
+- **After moving to a new page, focus starts at its heading.** Recorded with each screen, so the
+  build can be checked against it.
 
 ## What is open
 
@@ -30,9 +51,13 @@ used within the design tokens; how statistics and testimonials are shown.
 
 ## The screens each direction draws
 
-1. **Home**: [`home`](../content/pages/home.md), at desktop width (1440) and at phone width (390).
-2. **Opportunity list**: [`opportunity-list`](../content/pages/opportunity-list.md), at desktop width.
-3. **Proposal form**: [`proposal-cwu-create`](../content/pages/proposal-cwu-create.md), at desktop width.
+1. **Home**: [`home`](../content/pages/home.md).
+2. **Opportunity list**: [`opportunity-list`](../content/pages/opportunity-list.md), including its
+   no-results state.
+3. **Proposal form**: [`proposal-cwu-create`](../content/pages/proposal-cwu-create.md), including
+   its saved-draft state.
+
+Each at desktop (1440), phone (390) and narrow phone (320) widths.
 
 And a style tile: the type scale in use, buttons, one card, one form field, the imagery treatment
 and the spacing rhythm, on a single frame.
