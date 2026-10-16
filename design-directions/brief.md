@@ -50,11 +50,13 @@ Every direction uses the same header and footer, drawn once at all three widths 
 header and footer" page of the project's Figma file.
 
 - **Desktop.** Two rows. The first holds the B.C. logo, "Digital Marketplace" and the account
-  area: Sign In and Sign Up when signed out; when signed in, the person's email address, which
-  opens My Profile, My Organizations (for vendors) and Sign Out. The second row holds the
-  navigation, separated by dividers as on the original site.
-- **Phones.** The design system's phone header: the B.C. logo and a Menu button. The open menu
-  repeats "Digital Marketplace" at its top, lists the navigation, then the account actions.
+  area: Sign In as a tertiary button and Sign Up as a secondary one when signed out, so each
+  page's own main action stays its only primary button; when signed in, the person's email
+  address, which opens My Profile, My Organizations (for vendors) and Sign Out. The second row
+  holds the navigation, separated by dividers as on the original site.
+- **Phones.** The design system's phone header: the B.C. logo and a Menu button that shows the
+  word "Menu" beside its icon, and "Close" when the menu is open. The open menu repeats "Digital
+  Marketplace" at its top, lists the navigation, then the account actions.
 - **The current page** is marked by a bar and bold text: under the item on desktop, beside it in
   the phone menu.
 - **Keyboard and screen readers.** A "Skip to main content" link comes first and appears on focus.
@@ -76,7 +78,9 @@ statistics and testimonials are shown.
    and the opportunity list. An element collage is one frame holding the pieces a direction treats
    differently from the others (an opportunity, the program presentation, the statistics, a
    testimonial and the opening section) without laying out a whole page.
-2. **One direction is chosen**, or one direction with named borrowings from another.
+2. **One direction is chosen**, or one direction with named borrowings from another, by one
+   question: which direction gets a vendor from the home page to an open opportunity that suits
+   them fastest on a phone, while still explaining the three programs to a first-time visitor?
 3. **The chosen direction draws every screen below** at desktop (1440), phone (390) and narrow
    phone (320):
    1. **Home**: [`home`](../content/pages/home.md).
@@ -101,7 +105,7 @@ Welcoming and explanatory: the three programs are the front door.
 | The three programs | Three large panels, each with its description, its budget limit where it has one, and Learn More. |
 | Opportunities | Cards, grouped under their program. |
 | Density | Low, with plenty of white space. |
-| Imagery | No photographs; simple icons from the design system's icon set mark the programs. |
+| Imagery | The original site's own program illustrations; no photographs. |
 | Accent colour | B.C. gold as a thin rule on each program panel; blue only for actions. |
 | Statistics and testimonials | The two award totals as a quiet line under the introduction; testimonials as quotations near the end. |
 
