@@ -101,7 +101,7 @@ Welcoming and explanatory: the three programs are the front door.
 | Open question | Answer |
 |---|---|
 | Leads with | What the marketplace is for, then the three programs. |
-| Opening section | The existing headline and introduction, with the Vendors and Public Service Employees descriptions as two paths side by side. |
+| Opening section | The existing headline and introduction, the award totals as a quiet line, and Browse Opportunities. The Vendors and Public Service Employees sections follow the programs, as two paths side by side. |
 | The three programs | Three large panels, each with its description, its budget limit where it has one, and Learn More. |
 | Opportunities | Cards, grouped under their program. |
 | Density | Low, with plenty of white space. |
