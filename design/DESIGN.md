@@ -3775,3 +3775,95 @@ show something, the story marks it as illustrative or says which gap it rests on
     identifying the member, without its words. The reference uses the design's own: "Panel member
     2: Test Evaluator Two must be an evaluator, the chair, or both." The missing-chair refusal
     reuses the panel form's message (R-5.9 asks only that the service apply the form's rule).
+
+---
+
+## Site shell and the chosen direction
+
+The screens drawn from the chosen direction (`design-directions/decision.md`: Direction B, Opportunities
+first, with Direction A's program panels) share the site shell and the components below. They are this
+project's own compositions of design-system components and tokens; none is a design-system component.
+
+### Site header and footer
+
+`design/catalogue/site.tsx`. `SitePage` lays out a whole screen: a skip link, the header, the page as the
+`main` region (`id="main"`), and the footer.
+
+- **Skip link.** "Skip to main content" is the first Tab stop on every screen and appears on focus, drawn
+  with the tokens the design system uses for its own skip links. The design system's `Header` renders its
+  skip links after the logo link, which would make the skip link the second Tab stop, so the shell renders
+  its own before the header.
+- **Wide screens (768 pixels and wider).** The design system's `Header` with the title "Digital
+  Marketplace" and the account area, and its `Subheader` holding the navigation, separated by the
+  Subheader's dividers. A visitor is offered Home, Opportunities and Organizations; a signed-in person
+  Dashboard, Opportunities and Organizations; an administrator also Users and Content. The account area
+  offers a visitor Sign In (tertiary) and Sign Up (secondary), so a page's own main action is its only
+  primary button. A signed-in person's email address opens the design system's `Menu`: My Profile, My
+  Organizations (vendors only) and Sign Out. The menu opens with a click, Enter or Space, the arrow keys
+  move through it, and Escape closes it and returns focus to the button.
+- **Narrow screens (below 768 pixels).** The design system's header with the logo and a secondary Menu
+  button that shows its name: "Menu" beside a menu icon, and "Close" beside the design system's close icon
+  when the menu is open, with `aria-expanded` and `aria-controls`. The open menu repeats "Digital
+  Marketplace", lists the navigation, then the account actions: Sign In and Sign Up at full width, or
+  "Signed in as" the email address with My Profile, My Organizations (vendors only) and Sign Out. Escape
+  closes it and returns focus to the button. 768 pixels is the narrowest width the design system's Figma
+  header is drawn for above its phone version. The switch is read in script, so only one header is ever in
+  the document and each account action carries its test ID once.
+- **The current page** carries `aria-current="page"` and is marked by a bar and bold text, never by colour
+  alone: a bar under the item on wide screens, beside it in the menu.
+- **Footer.** The design system's `Footer` with its land acknowledgement and logo, the original site's line
+  "Owned and operated by the B.C. Government." in place of the contact details, and the original site's
+  eight links in the Footer's two-column list: Home, About, Disclaimer, Privacy, Accessibility, Copyright,
+  Contact Us and Source Code. The list has no heading and there is no copyright line.
+- **Test IDs.** The header is `site-header` and the footer `site-footer`. The footer's About, Disclaimer,
+  Privacy, Accessibility and Copyright links keep `footer-about-link`, `footer-disclaimer-link`,
+  `footer-privacy-link`, `footer-accessibility-link` and `footer-copyright-link`. A page whose contract
+  names its own sign-in and sign-up actions passes their test IDs to the header: on the home page the
+  header's Sign In and Sign Up are `home-sign-in` and `home-sign-up`.
+
+### The chosen direction's components
+
+`design/catalogue/marketplace.tsx`.
+
+- **Label.** A short static label drawn like the design system's small rectangular `Tag`, from the same
+  tokens: grey for a program, and the support colours for an opportunity's status (green for Open). The
+  design system's `Tag` is an interactive grid item inside `TagGroup`, the wrong role for text that only
+  labels. Colour marks status and nothing else, and the label always says the status in words.
+- **Opportunity rows.** A list of opportunities, each an `article` labelled by its title link. Every
+  opportunity shows the same facts in the same order: program and status, title, closing date, value,
+  location and Remote OK, then its summary. Where the list is at least 760 pixels wide the facts sit in
+  aligned columns beside the title (190, 70, 70 and 80 pixels with `medium` gaps; from 1000 pixels, 280,
+  80, 80 and 80 with `xlarge` gaps). Narrower, each opportunity is a stacked card with the closing date on
+  one line and the value, location and Remote OK on the next. The switch follows the width of the list (a
+  container query), not of the window.
+- **Program panels.** Direction A's three panels at Direction B's density: a gold rule
+  (`--theme-primary-gold`), the original site's program illustration, the name, the original description,
+  the budget limit where there is one, and "Learn More", to which screen readers hear the program's name
+  added. The illustrations are decorative (`alt=""`): the program's name is the panel's heading. Three
+  across where they fit (each at least 260 pixels wide), stacked where they do not.
+
+### Document title and focus
+
+After moving to a new page, focus starts at the page's H1, as the application's root layout already
+arranges. Each page's H1 keeps level 1 and takes the design system's H3 size, the direction's denser scale;
+section headings take the H4 size.
+
+### Widths and reflow
+
+Each story drawn from the chosen direction offers the three widths it is drawn at (Desktop 1440, Phone 390
+and Narrow phone 320) in Storybook's viewport menu. Layouts reflow with their content: rows that wrap,
+grids that fit as many columns as have room, and the container query above. The header is the one part
+that switches at a fixed width. Each of these stories must show no sideways scrolling and no axe
+violations at all three widths; the catalogue scan checks desktop width only.
+
+### Gaps in the design system
+
+1. **Skip link order.** The `Header` renders its skip links after the logo link (see above).
+2. **Links drawn as buttons keep the browser's underline.** `Link` with `isButton` takes the button
+   classes, which do not remove an anchor's underline. The shell removes it, so these look like the design
+   system's buttons.
+3. **The Footer is wider than a 320-pixel screen.** It gives the logo block and the link list minimum
+   widths of 324 and 320 pixels. Below 576 pixels the shell lets both shrink to the screen.
+4. **Line heights differ from the Figma library.** The CSS tokens set the H3 size at 28 pixels on a
+   48-pixel line, where the Figma library's H3 style uses a 42-pixel line, so headings in the stories stand
+   taller than in the Figma drafts.
