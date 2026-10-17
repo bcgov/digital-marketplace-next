@@ -65,7 +65,7 @@ screens:
   - page: opportunity-dashboard
     states: [default, administrator, empty, loading]
   - page: opportunity-list
-    states: [default, staff, signed-out, loading]
+    states: [default, staff, signed-out, loading, no-results]
   - page: opportunity-program-select
     states: [default, not-found]
   - page: opportunity-cwu-create

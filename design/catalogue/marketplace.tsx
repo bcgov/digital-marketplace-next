@@ -39,20 +39,45 @@ export const PROGRAM_NAMES: Record<Program, string> = {
   "team-with-us": "Team With Us",
 };
 
+// Where an opportunity is in its life. Staff see this stage named; everyone else sees whether it is open.
+export type Stage = "draft" | "under-review" | "published" | "evaluation" | "awarded" | "canceled";
+
 export type Opportunity = {
   id: string;
   program: Program;
   title: string;
   summary: string;
-  status: { label: string; colour: LabelColour };
-  closes: string;
+  stage: Stage;
+  // Accepting proposals: published, with its proposal deadline still ahead.
+  open: boolean;
+  // The proposal deadline, read after "Closes" while it is ahead and "Closed" once it has passed.
+  deadline: string;
   value: string;
   location: string;
   remoteOk: boolean;
   watching?: boolean;
 };
 
-const OPEN = { label: "Open", colour: "green" } as const;
+export type Status = { label: string; colour: LabelColour };
+
+const STAGES: Record<Stage, Status> = {
+  draft: { label: "Draft", colour: "grey" },
+  "under-review": { label: "Under Review", colour: "yellow" },
+  published: { label: "Published", colour: "green" },
+  evaluation: { label: "Evaluation", colour: "yellow" },
+  awarded: { label: "Awarded", colour: "green" },
+  canceled: { label: "Canceled", colour: "red" },
+};
+
+// The original site's wording and colour for an opportunity's status. An administrator or the opportunity's author
+// sees its stage; anyone else sees Open, Evaluation, Canceled or Completed.
+export function statusOf(opportunity: Opportunity, asStaff: boolean): Status {
+  if (asStaff) return STAGES[opportunity.stage];
+  if (opportunity.open) return { label: "Open", colour: "green" };
+  if (opportunity.stage === "evaluation") return { label: "Evaluation", colour: "yellow" };
+  if (opportunity.stage === "canceled") return { label: "Canceled", colour: "red" };
+  return { label: "Completed", colour: "grey" };
+}
 
 // The open opportunities of the seed the acceptance tests run against (tests/seed/manifest.yaml), so the catalogue
 // shows the shapes the service holds. Their wording is test data.
@@ -62,8 +87,9 @@ export const OPEN_OPPORTUNITIES: Opportunity[] = [
     program: "sprint-with-us",
     title: "Seeded open Sprint With Us opportunity with a submitted proposal",
     summary: "A Sprint With Us opportunity still open for proposals.",
-    status: OPEN,
-    closes: "Nov 14, 2026 at 7:46 AM PST",
+    stage: "published",
+    open: true,
+    deadline: "Nov 14, 2026 at 7:46 AM PST",
     value: "$500,000",
     location: "Victoria",
     remoteOk: true,
@@ -73,8 +99,9 @@ export const OPEN_OPPORTUNITIES: Opportunity[] = [
     program: "code-with-us",
     title: "Seeded published Code With Us opportunity",
     summary: "A published opportunity that exists before any test runs.",
-    status: OPEN,
-    closes: "Jun 1, 2030 at 4:59 PM PDT",
+    stage: "published",
+    open: true,
+    deadline: "Jun 1, 2030 at 4:59 PM PDT",
     value: "$5,000",
     location: "Victoria",
     remoteOk: true,
@@ -84,8 +111,78 @@ export const OPEN_OPPORTUNITIES: Opportunity[] = [
     program: "code-with-us",
     title: "Seeded Code With Us opportunity with a private note",
     summary: "A published opportunity whose history carries a private note.",
-    status: OPEN,
-    closes: "Jun 1, 2030 at 4:59 PM PDT",
+    stage: "published",
+    open: true,
+    deadline: "Jun 1, 2030 at 4:59 PM PDT",
+    value: "$5,000",
+    location: "Victoria",
+    remoteOk: true,
+  },
+];
+
+// Opportunities of the same seed that no longer accept proposals, most recently closed first. Their deadlines,
+// values and summaries are test data.
+export const CLOSED_OPPORTUNITIES: Opportunity[] = [
+  {
+    id: "00000000-0000-4000-a031-000000000001",
+    program: "team-with-us",
+    title: "Seeded Team With Us opportunity at consensus with five proponents",
+    summary: "A Team With Us opportunity whose evaluators are agreeing their scores.",
+    stage: "evaluation",
+    open: false,
+    deadline: "Oct 2, 2026 at 4:00 PM PDT",
+    value: "$400,000",
+    location: "Victoria",
+    remoteOk: true,
+  },
+  {
+    id: "00000000-0000-4000-a020-000000000001",
+    program: "sprint-with-us",
+    title: "Seeded awarded Sprint With Us opportunity",
+    summary: "A Sprint With Us opportunity awarded to one proponent.",
+    stage: "awarded",
+    open: false,
+    deadline: "Sep 18, 2026 at 4:00 PM PDT",
+    value: "$500,000",
+    location: "Victoria",
+    remoteOk: true,
+  },
+  {
+    id: "00000000-0000-4000-a008-000000000001",
+    program: "code-with-us",
+    title: "Seeded awarded Code With Us opportunity",
+    summary: "A Code With Us opportunity awarded to one proponent.",
+    stage: "awarded",
+    open: false,
+    deadline: "Aug 28, 2026 at 4:00 PM PDT",
+    value: "$5,000",
+    location: "Victoria",
+    remoteOk: true,
+  },
+  {
+    id: "00000000-0000-4000-a040-000000000001",
+    program: "code-with-us",
+    title: "Seeded cancelled Code With Us opportunity",
+    summary: "A Code With Us opportunity cancelled before it was awarded.",
+    stage: "canceled",
+    open: false,
+    deadline: "Aug 14, 2026 at 4:00 PM PDT",
+    value: "$5,000",
+    location: "Victoria",
+    remoteOk: true,
+  },
+];
+
+// The seed's unpublished opportunity, which staff see and nobody else does.
+export const UNPUBLISHED_OPPORTUNITIES: Opportunity[] = [
+  {
+    id: "00000000-0000-4000-8000-000000000602",
+    program: "code-with-us",
+    title: "Seeded draft Code With Us opportunity of another staff member",
+    summary: "A draft that has not been submitted for review.",
+    stage: "draft",
+    open: false,
+    deadline: "Jun 1, 2030 at 4:59 PM PDT",
     value: "$5,000",
     location: "Victoria",
     remoteOk: true,
@@ -100,25 +197,28 @@ type RowsProps = {
   withTestIds?: boolean;
   // A signed-in viewer can watch each opportunity, to be emailed when it changes.
   withWatch?: boolean;
+  // Staff see each opportunity's stage rather than whether it is open.
+  asStaff?: boolean;
 };
 
 // Every opportunity shows the same facts in the same order: program and status, title, closing date, value, location
 // and Remote OK, then its summary (design-directions/decision.md, rule 2). Where the list is wide enough the facts sit
 // in aligned columns beside the title; where it is not, each opportunity is a stacked card with its facts on two
 // lines. The switch follows the width of the list itself, not of the window.
-export function OpportunityRows({ opportunities, titleLevel, withTestIds = false, withWatch = false }: RowsProps) {
+export function OpportunityRows({ opportunities, titleLevel, withTestIds = false, withWatch = false, asStaff = false }: RowsProps) {
   return (
     <ul className="dm-rows">
       {opportunities.map((opportunity) => {
         const titleId = `opportunity-${opportunity.id}`;
+        const status = statusOf(opportunity, asStaff);
         return (
           <li key={opportunity.id} className="dm-row">
             <article aria-labelledby={titleId} className="dm-row-grid">
               <div className="dm-row-head">
                 <div className="dm-row-labels">
                   <Label>{PROGRAM_NAMES[opportunity.program]}</Label>
-                  <Label colour={opportunity.status.colour} testId={withTestIds ? "opportunity-status" : undefined}>
-                    {opportunity.status.label}
+                  <Label colour={status.colour} testId={withTestIds ? "opportunity-status" : undefined}>
+                    {status.label}
                   </Label>
                 </div>
                 <Heading level={titleLevel} id={titleId} style={look.title}>
@@ -127,8 +227,8 @@ export function OpportunityRows({ opportunities, titleLevel, withTestIds = false
               </div>
               <ul className="dm-facts">
                 <li>
-                  Closes{" "}
-                  <span data-testid={withTestIds ? "opportunity-proposal-deadline" : undefined}>{opportunity.closes}</span>
+                  {opportunity.open ? "Closes" : "Closed"}{" "}
+                  <span data-testid={withTestIds ? "opportunity-proposal-deadline" : undefined}>{opportunity.deadline}</span>
                 </li>
                 <li>{opportunity.value}</li>
                 <li>{opportunity.location}</li>
@@ -306,7 +406,7 @@ const css = `
     grid-template-columns: minmax(0, 1fr) auto;
     grid-template-areas: "head facts" "summary facts" "watch facts";
     grid-template-rows: auto auto 1fr;
-    column-gap: var(--layout-margin-xlarge);
+    column-gap: var(--layout-margin-medium);
   }
   .dm-facts {
     display: grid;
@@ -318,6 +418,7 @@ const css = `
   .dm-facts > li:not(:first-child):not(:last-child)::after { content: none; }
 }
 @container (min-width: 1000px) {
+  .dm-row-grid { column-gap: var(--layout-margin-xlarge); }
   .dm-facts {
     grid-template-columns: 280px 80px 80px 80px;
     column-gap: var(--layout-margin-xlarge);

@@ -3842,6 +3842,33 @@ project's own compositions of design-system components and tokens; none is a des
   added. The illustrations are decorative (`alt=""`): the program's name is the panel's heading. Three
   across where they fit (each at least 260 pixels wide), stacked where they do not.
 
+### Opportunity list
+
+`design/catalogue/opportunity-list-page.tsx`, states `default` (a signed-in vendor), `signed-out`, `staff`
+(an administrator), `loading` and `no-results`.
+
+- **Layout.** The H1 "Welcome to the Digital Marketplace", then, where the page is at least 720 pixels
+  wide, a 240-pixel filter sidebar beside the results; narrower, the search, the filters, the results and
+  the program descriptions in one column. The filters are "Filter Opportunities" (all three programs, or
+  one), "Opportunity Status" for staff only, Remote OK and Reset. The sidebar ends with the original site's
+  one-line description of each program and its Learn More link.
+- **Groups.** "Open Opportunities" with the number of open opportunities beside it, then "Closed
+  Opportunities", and for staff "Unpublished Opportunities" first. Closed and Unpublished start closed, as
+  on the original site: each heading holds a button with `aria-expanded` that shows or hides its rows, the
+  chevron turning to match. Each group keeps its test ID (`opportunity-group-open`,
+  `opportunity-group-closed`, `opportunity-group-unpublished`) whether open or closed; each row keeps
+  `opportunity-status` and `opportunity-proposal-deadline`, and a vendor's rows `opportunity-watch-toggle`.
+- **Status wording.** The original site's: staff see an opportunity's stage (Draft, Under Review,
+  Published, Evaluation, Awarded, Canceled); everyone else sees Open, Evaluation, Canceled or Completed.
+  The label's colour follows the original site's colour for that status.
+- **Searching and filtering.** The search matches its words, in order, against an opportunity's title or
+  location, ignoring case. When a group has nothing to show it says so in the original site's words, which
+  tell a search that matched nothing ("There are no open opportunities that match your search criteria.")
+  apart from a group that is empty ("There are currently no open opportunities. Check back soon!"). The
+  open group's message sits in a polite status region that is always present, so it is announced when the
+  results change. When a search has matched nothing, Clear search empties the search field and returns
+  focus to it; Reset clears the search and every filter.
+
 ### Document title and focus
 
 After moving to a new page, focus starts at the page's H1, as the application's root layout already
