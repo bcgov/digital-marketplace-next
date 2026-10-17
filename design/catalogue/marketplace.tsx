@@ -50,7 +50,7 @@ export type Opportunity = {
   stage: Stage;
   // Accepting proposals: published, with its proposal deadline still ahead.
   open: boolean;
-  // The proposal deadline, read after "Closes" while it is ahead and "Closed" once it has passed.
+  // The proposal deadline, read after "Closes" until the opportunity has closed and after "Closed" once it has.
   deadline: string;
   value: string;
   location: string;
@@ -59,6 +59,9 @@ export type Opportunity = {
 };
 
 export type Status = { label: string; colour: LabelColour };
+
+// The stages an opportunity reaches once its proposal deadline has passed.
+const CLOSED_STAGES: Stage[] = ["evaluation", "awarded", "canceled"];
 
 const STAGES: Record<Stage, Status> = {
   draft: { label: "Draft", colour: "grey" },
@@ -211,6 +214,7 @@ export function OpportunityRows({ opportunities, titleLevel, withTestIds = false
       {opportunities.map((opportunity) => {
         const titleId = `opportunity-${opportunity.id}`;
         const status = statusOf(opportunity, asStaff);
+        const closed = CLOSED_STAGES.includes(opportunity.stage);
         return (
           <li key={opportunity.id} className="dm-row">
             <article aria-labelledby={titleId} className="dm-row-grid">
@@ -227,7 +231,7 @@ export function OpportunityRows({ opportunities, titleLevel, withTestIds = false
               </div>
               <ul className="dm-facts">
                 <li>
-                  {opportunity.open ? "Closes" : "Closed"}{" "}
+                  {closed ? "Closed" : "Closes"}{" "}
                   <span data-testid={withTestIds ? "opportunity-proposal-deadline" : undefined}>{opportunity.deadline}</span>
                 </li>
                 <li>{opportunity.value}</li>
