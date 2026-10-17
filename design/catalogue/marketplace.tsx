@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { Checkbox, Heading, Link } from "@bcgov/design-system-react-components";
 
-// The chosen direction's own components (design-directions/decision.md): the label, the opportunity rows and the
+// The chosen direction's own components (design/DESIGN.md, "The chosen direction"): the label, the opportunity rows and the
 // program panels, with the facts they show. Built from standard HTML and the design tokens; none of them is a
 // design-system component (design/DESIGN.md, "The chosen direction's components").
 
@@ -205,7 +205,7 @@ type RowsProps = {
 };
 
 // Every opportunity shows the same facts in the same order: program and status, title, closing date, value, location
-// and Remote OK, then its summary (design-directions/decision.md, rule 2). Where the list is wide enough the facts sit
+// and Remote OK, then its summary (design/DESIGN.md, "The chosen direction", rule 2). Where the list is wide enough the facts sit
 // in aligned columns beside the title; where it is not, each opportunity is a stacked card with its facts on two
 // lines. The switch follows the width of the list itself, not of the window.
 export function OpportunityRows({ opportunities, titleLevel, withTestIds = false, withWatch = false, asStaff = false }: RowsProps) {

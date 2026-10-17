@@ -3780,9 +3780,30 @@ show something, the story marks it as illustrative or says which gap it rests on
 
 ## Site shell and the chosen direction
 
-The screens drawn from the chosen direction (`design-directions/decision.md`: Direction B, Opportunities
-first, with Direction A's program panels) share the site shell and the components below. They are this
-project's own compositions of design-system components and tokens; none is a design-system component.
+The screens drawn from the chosen direction share the site shell and the components below. They are
+this project's own compositions of design-system components and tokens; none is a design-system
+component.
+
+### The chosen direction
+
+Opportunities first, with the original site's three illustrated program panels: the open opportunities
+and the way to find them lead, and the programs are introduced by their panels, placed on the home page
+directly after the opportunities. These rules extend it to every screen:
+
+1. **Opportunities and the way to find them come first** on any screen that lists them.
+2. **An opportunity always shows the same facts in the same order:** program and status, title, closing
+   date, value, location and Remote OK, then its summary.
+3. **Colour marks only an opportunity's status.** Program labels and everything else stay neutral.
+4. **The programs are explained by the illustrated panels where they are introduced,** on the home page.
+   Elsewhere they appear as the opportunity type filter and as labels.
+5. **Dense by default:** small text for facts, the tighter spacing tokens, and one primary action per
+   screen.
+6. **The only imagery is the original program illustrations,** inside the program panels.
+7. **On phones,** rows become stacked cards with the facts on two lines, panels stack at full width, and
+   the header and footer are the shared phone versions.
+
+The words are the original site's. A screen adds wording only where a requirement needs something the
+original site did not have, such as a way to clear a search that matched nothing.
 
 ### Site header and footer
 

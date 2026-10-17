@@ -23,7 +23,7 @@ import { PageContainer } from "./layout";
 import { Label, MarketplaceStyles, OPEN_OPPORTUNITIES, PROGRAM_NAMES } from "./marketplace";
 import { useNarrow } from "./site";
 
-// The Code With Us proposal form in the chosen direction (design-directions/decision.md): one long form in the
+// The Code With Us proposal form in the chosen direction (design/DESIGN.md, "The chosen direction"): one long form in the
 // original site's three parts, Proponent, Proposal and Attachments, beside a summary of the opportunity that stays in
 // view and holds the actions. On a narrow screen the summary is a compact card near the top and the actions follow the
 // form. Every word is the original site's. Submit opens the terms dialog and Save Draft shows the saved message, so the

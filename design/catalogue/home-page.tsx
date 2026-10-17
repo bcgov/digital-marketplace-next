@@ -2,7 +2,7 @@ import { Heading, Link, ProgressCircle, Text, TextField } from "@bcgov/design-sy
 import { PageContainer } from "./layout";
 import { Label, MarketplaceStyles, OPEN_OPPORTUNITIES, OpportunityRows, ProgramPanels, look } from "./marketplace";
 
-// The home page in the chosen direction (design-directions/decision.md): the search and the open opportunities first,
+// The home page in the chosen direction (design/DESIGN.md, "The chosen direction"): the search and the open opportunities first,
 // then Direction A's program panels, the award totals, the two paths, the testimonials and a closing line. Every word
 // is the original site's.
 

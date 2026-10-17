@@ -25,7 +25,7 @@ import {
   type Program,
 } from "./marketplace";
 
-// The opportunity list in the chosen direction (design-directions/decision.md): a filter sidebar beside the search and
+// The opportunity list in the chosen direction (design/DESIGN.md, "The chosen direction"): a filter sidebar beside the
 // the rows of open opportunities, with closed (and, for staff, unpublished) opportunities in groups that open on
 // request, as on the original site. On a narrow screen the filters sit under the search and the program descriptions
 // follow the results. The filters and the search work on the stories' opportunities.
