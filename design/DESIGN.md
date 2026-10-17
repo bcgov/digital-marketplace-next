@@ -3869,6 +3869,35 @@ project's own compositions of design-system components and tokens; none is a des
   results change. When a search has matched nothing, Clear search empties the search field and returns
   focus to it; Reset clears the search and every filter.
 
+### Code With Us proposal form
+
+`design/catalogue/proposal-cwu-create-page.tsx`, states `default`, `organization`, `invalid`, `refused`,
+`terms`, `draft-saved` and `not-found`.
+
+- **Layout.** One long form in the original site's three parts, "1. Proponent", "2. Proposal" and "3.
+  Attachments", under the H1 "Create a Code With Us Proposal", the opportunity's title and the original
+  site's introduction. On wide screens a 320-pixel summary of the opportunity stays in view beside the
+  form and holds the actions in the order Submit, Save Draft, Cancel. On narrow screens the summary is a
+  compact card under the opportunity's title, and the actions follow the form at full width. As with the
+  header, the switch is read in script so each action and its test ID appear once.
+- **Fields.** The original site's labels, help text and required fields, with "(required)" added by the
+  design system to each required label. Choosing Organization replaces the individual's details with the
+  Organization select and the original site's guidance on adding an organization. Proposal Evaluation
+  Criteria is the design system's `Accordion` inside a light-blue `Callout`: closed until opened, as on the
+  original site.
+- **Messages.** Each message is the original site's and takes keyboard focus when it appears, so it is
+  read out and a keyboard user starts from it:
+  - `draft-saved`: "Draft Proposal Saved" with its explanation, a success `InlineAlert` that stays until it
+    is dismissed; the summary gains a Draft label.
+  - `invalid`: "Unable to Submit Proposal" with its explanation and a link to each problem (`field-error`);
+    each field shows the original site's message for it, and what was typed is kept.
+  - `refused`: the service's refusal when the vendor already holds a proposal for the opportunity
+    (`proposal-refused-message`), with a link to that proposal.
+- **Terms.** Submit opens the original site's "Review Terms and Conditions" dialog. Its Submit Proposal
+  button (`proposal-submit-confirm`) stays disabled until both acknowledgements are ticked.
+- **Test IDs.** Every test ID the form's stories carried is kept on the matching element, the contract's
+  own and the field-level ones (`proposal-legal-name-field` and the rest).
+
 ### Document title and focus
 
 After moving to a new page, focus starts at the page's H1, as the application's root layout already
@@ -3891,6 +3920,9 @@ violations at all three widths; the catalogue scan checks desktop width only.
    system's buttons.
 3. **The Footer is wider than a 320-pixel screen.** It gives the logo block and the link list minimum
    widths of 324 and 320 pixels. Below 576 pixels the shell lets both shrink to the screen.
-4. **Line heights differ from the Figma library.** The CSS tokens set the H3 size at 28 pixels on a
+4. **InlineAlert drops its title when it has content of its own.** Given `children`, it renders neither
+   `title` nor `description`, and its `aria-labelledby` points at a title that is not there. Alerts with
+   content write their title in the alert's own title markup.
+5. **Line heights differ from the Figma library.** The CSS tokens set the H3 size at 28 pixels on a
    48-pixel line, where the Figma library's H3 style uses a 42-pixel line, so headings in the stories stand
    taller than in the Figma drafts.

@@ -265,7 +265,7 @@ screens:
 
   # proposals domain — see design/DESIGN.md, "Domain: proposals"
   - page: proposal-cwu-create
-    states: [default, organization, invalid, refused, terms, not-found]
+    states: [default, organization, invalid, refused, terms, not-found, draft-saved]
   - page: proposal-swu-create
     states: [default, invalid, unqualified-organization, refused, terms, not-found]
   - page: proposal-twu-create
