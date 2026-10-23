@@ -218,6 +218,52 @@
       ]
     },
     {
+      "username": "gov-panel-evaluator-second",
+      "enabled": true,
+      "emailVerified": true,
+      "email": "panel.evaluator.two@example.test",
+      "firstName": "Quinn",
+      "lastName": "Placeholder",
+      "attributes": {
+        "identity_provider": [
+          "idir"
+        ],
+        "account_type": [
+          "GOV"
+        ]
+      },
+      "credentials": [
+        {
+          "type": "password",
+          "value": "__SANDBOX_PASSWORD__",
+          "temporary": false
+        }
+      ]
+    },
+    {
+      "username": "gov-panel-chair-second",
+      "enabled": true,
+      "emailVerified": true,
+      "email": "panel.chair.two@example.test",
+      "firstName": "Sasha",
+      "lastName": "Placeholder",
+      "attributes": {
+        "identity_provider": [
+          "idir"
+        ],
+        "account_type": [
+          "GOV"
+        ]
+      },
+      "credentials": [
+        {
+          "type": "password",
+          "value": "__SANDBOX_PASSWORD__",
+          "temporary": false
+        }
+      ]
+    },
+    {
       "username": "test-vendor-1",
       "enabled": true,
       "emailVerified": true,

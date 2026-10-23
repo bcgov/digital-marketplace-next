@@ -1,8 +1,8 @@
 {
   "pipeline": {
     "repo": "alex-struk/agentic-sdlc",
-    "ref": "main",
-    "commit": "f7c4e5b43cf49880962a3c10a7f020c184cecff4"
+    "ref": "deploy-to-azure",
+    "commit": "bba2992b7a25b8773978e1179bf335f6adb51843"
   },
   "packs": [
     {
@@ -48,5 +48,5 @@
     "tech-lead.md": "b369689633a185c6",
     "ux-reviewer.md": "1b1d56c679c4420c"
   },
-  "created": "2026-10-02T22:11:15.712Z"
+  "created": "2026-10-16T21:27:00.317Z"
 }

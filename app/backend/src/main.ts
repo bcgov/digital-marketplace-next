@@ -1,3 +1,4 @@
+import "./telemetry";
 import { Logger } from "@nestjs/common";
 import { createApplication } from "./application";
 

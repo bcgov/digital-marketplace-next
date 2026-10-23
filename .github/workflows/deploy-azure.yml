@@ -1,0 +1,128 @@
+# Deploys new images to the development and test environment on Azure Container Apps (decision
+# record 0069). It only swaps image tags on the two existing apps, so its Azure identity needs no
+# right to create anything. The foundation is created once by hand: infra/azure/README.md.
+name: Deploy to Azure
+
+on:
+  workflow_dispatch: {}
+
+concurrency:
+  group: deploy-azure-dev
+  cancel-in-progress: false
+
+permissions: {}
+
+env:
+  RESOURCE_GROUP: rg-dmdev
+  IDP_APP: dmdev-idp
+  FRONTEND_APP: dmdev-frontend
+
+jobs:
+  resolve:
+    name: Find the identity provider
+    runs-on: ubuntu-24.04
+    environment: dev
+    permissions:
+      contents: read
+      id-token: write
+    outputs:
+      idp_url: ${{ steps.idp.outputs.idp_url }}
+    steps:
+      - uses: azure/login@a641126d1b8aa4d1fa005f4f92df94a3a4c4c906 # v3.1.0
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+      - id: idp
+        run: |
+          set -euo pipefail
+          fqdn=$(az containerapp show --resource-group "$RESOURCE_GROUP" --name "$IDP_APP" \
+            --query properties.configuration.ingress.fqdn -o tsv)
+          echo "idp_url=https://$fqdn" >> "$GITHUB_OUTPUT"
+
+  images:
+    name: Build and push images
+    needs: resolve
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      packages: write
+    outputs:
+      registry: ${{ steps.build.outputs.registry }}
+      tag: ${{ steps.build.outputs.tag }}
+    steps:
+      - uses: actions/checkout@v7
+      - name: Build and push
+        id: build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          IDP_URL: ${{ needs.resolve.outputs.idp_url }}
+        run: |
+          set -euo pipefail
+          registry="ghcr.io/${GITHUB_REPOSITORY,,}"
+          tag="${GITHUB_SHA::12}"
+          echo "$GITHUB_TOKEN" | docker login ghcr.io -u "$GITHUB_ACTOR" --password-stdin
+          build() {
+            local name=$1 dockerfile=$2
+            shift 2
+            docker build -f "$dockerfile" -t "$registry/$name:$tag" \
+              --label "org.opencontainers.image.source=https://github.com/$GITHUB_REPOSITORY" "$@" .
+            docker push "$registry/$name:$tag"
+          }
+          build backend app/backend/Dockerfile
+          build migrations app/migrations/Dockerfile
+          build idp-realm app/compose/idp/Dockerfile
+          build frontend app/frontend/Dockerfile --build-arg "VITE_OIDC_URL=$IDP_URL"
+          echo "registry=$registry" >> "$GITHUB_OUTPUT"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+
+  apps:
+    name: Deploy applications
+    needs: [resolve, images]
+    runs-on: ubuntu-24.04
+    environment: dev
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: azure/login@a641126d1b8aa4d1fa005f4f92df94a3a4c4c906 # v3.1.0
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+      - name: Point the apps at the new images
+        env:
+          SUBSCRIPTION_ID: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+          REGISTRY: ${{ needs.images.outputs.registry }}
+          TAG: ${{ needs.images.outputs.tag }}
+        run: |
+          set -euo pipefail
+          for app in "$IDP_APP" "$FRONTEND_APP"; do
+            url="https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.App/containerApps/$app?api-version=2024-03-01"
+            # A PATCH replaces the template's arrays whole, so send the full template with only
+            # this registry's image tags changed; secrets and settings live outside the template.
+            body=$(az rest --method get --url "$url" | jq -c --arg reg "$REGISTRY/" --arg tag "$TAG" '
+              def retag: if (.image | startswith($reg)) then .image |= (sub(":[^:/]*$"; ":" + $tag)) else . end;
+              {properties: {template: (.properties.template
+                | .containers |= map(retag)
+                | if .initContainers then .initContainers |= map(retag) else . end)}}')
+            az rest --method patch --url "$url" --body "$body" --output none
+            for _ in $(seq 1 30); do
+              state=$(az rest --method get --url "$url" --query properties.provisioningState -o tsv)
+              [ "$state" != InProgress ] && break
+              sleep 10
+            done
+            [ "$state" = Succeeded ]
+          done
+      - name: Smoke test
+        env:
+          IDP_URL: ${{ needs.resolve.outputs.idp_url }}
+        run: |
+          set -euo pipefail
+          frontend_url="https://$(az containerapp show --resource-group "$RESOURCE_GROUP" --name "$FRONTEND_APP" \
+            --query properties.configuration.ingress.fqdn -o tsv)"
+          retry=(--fail --silent --show-error --retry 30 --retry-delay 10 --retry-all-errors)
+          curl "${retry[@]}" "$frontend_url/status" > /dev/null
+          realm="$IDP_URL/realms/digital-marketplace"
+          curl "${retry[@]}" "$realm/.well-known/openid-configuration" \
+            | jq -e --arg issuer "$realm" '.issuer == $issuer' > /dev/null

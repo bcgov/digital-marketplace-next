@@ -49,7 +49,7 @@ The service administers British Columbia's Code With Us, Sprint With Us and Team
 
 ### J2 — In scope / out of scope
 - In: rebuilding the application on the pipeline's stack, and running it in sandbox environments for development and testing.
-- Out: production operation of the service, environment operations and infrastructure, and the old application repository, which is read only as a reference and otherwise left untouched.
+- Out: production operation of the service, environment operations and infrastructure other than the development and test environment on Azure recorded in J6 (its Bicep under `infra/azure/` and its deploy workflow), and the old application repository, which is read only as a reference and otherwise left untouched.
 
 ### J3 — Forbidden patterns
 - No test-only entrances (routes, flags, or endpoints reachable only from tests) in application code.
@@ -78,6 +78,7 @@ The service administers British Columbia's Code With Us, Sprint With Us and Team
 ### J6 — Recorded exceptions
 | Platform article | Exception | Decision record |
 | --- | --- | --- |
+| P4 — Deploy target | One shared development and test environment runs on Azure Container Apps in the BC Gov Azure landing zone instead of OpenShift. Production is unaffected, and J3 still forbids any production target. | 0069 |
 
 ### J7 — Development notes
 To run the old application locally as the behavioural oracle: start its PostgreSQL database with `docker-compose up db` from the old repository's root, run its back-end with `npm run back-end:watch`, run its front-end with `npx vite dev`, and apply database migrations with `npm run migrations:latest`. Once migrations finish, the application is reachable at the local URL printed by the back-end process.

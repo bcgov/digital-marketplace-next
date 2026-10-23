@@ -1,6 +1,6 @@
 ---
 name: stack-openshift-ts
-description: Coding, testing, auth and deploy standards for the openshift-ts stack profile, built on bcgov/quickstart-openshift (React/Vite/TanStack Router frontend, NestJS/Prisma/Postgres backend, Keycloak OIDC, OpenAPI-first APIs).
+description: Coding, testing and auth standards for the openshift-ts stack profile, built on bcgov/quickstart-openshift (React/Vite/TanStack Router frontend, NestJS/Prisma/Postgres backend, Keycloak OIDC, OpenAPI-first APIs).
 # What this stack's toolchain generates. `init` adds these to the project's `.gitignore`,
 # so compiled output never reaches a proposal — where it is not evidence, and where it is
 # large enough to crowd the code out of the diff a gate is ruled on.
@@ -24,8 +24,7 @@ bulk:
 
 ## Don't use when
 
-- The project targets a different scaffold, a different deploy target than
-  OpenShift, or a non-TypeScript stack.
+- The project targets a different scaffold, or a non-TypeScript stack.
   Source: convention
 
 ## Layout
@@ -106,11 +105,3 @@ bulk:
   Source: bcgov/design-system
 - Write user-facing copy at a Grade 8 reading level.
   Source: bcgov/agent-instructions
-
-## Deploy
-
-- Deploy through the `bcgov/quickstart-openshift-helpers` reusable
-  workflows, referenced by a pinned, versioned commit.
-  Source: convention
-- No project workflow defines a route to a production namespace.
-  Source: convention

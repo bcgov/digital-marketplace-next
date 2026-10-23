@@ -1,6 +1,7 @@
-pipeline: { repo: alex-struk/agentic-sdlc, ref: main }
+pipeline: { repo: alex-struk/agentic-sdlc, ref: deploy-to-azure }
 profile: rebuild
 stack: openshift-ts
+deploy: [azure-container-apps]
 project:
   name: digital-marketplace-next
   domains: [opportunities, proposals, organizations, users, evaluation, notifications, content, files]
